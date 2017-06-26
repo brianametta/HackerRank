@@ -7,19 +7,21 @@ using namespace std;
 
 /* 
     HackerRank sorted array search
-	Simple algorithm to find an int in a sorted array and print the index of the int
+    Simple algorithm to find an int in a sorted array and print the index of the int
     Briana Wright
 */
 
 int main() {
     int searchQuery;
-    cin >>  searchQuery;
+    cin >> searchQuery;
     
     int arrLength;
     cin >> arrLength;
     
+    //Read into array
     int arr[arrLength];
-    for(int i = 0; i < arrLength; i++){
+    for(int i = 0; i < arrLength; i++)
+    {
         cin >> arr[i];
     }
     
@@ -29,15 +31,20 @@ int main() {
     if(arr[i] == searchQuery)
         cout << i;
     
-    if(arr[i] < searchQuery){
-        while(arr[i]!= searchQuery){
+    //search similar to binary search
+    if(arr[i] < searchQuery)
+    {
+        while(arr[i]!= searchQuery)
+	{
             i++;
         }
         cout << i;
     }
     
-    if(arr[i] > searchQuery){
-        while(arr[i]!=searchQuery){
+    if(arr[i] > searchQuery)
+    {
+        while(arr[i]!=searchQuery)
+	{
             i--;
         }
         cout << i;
