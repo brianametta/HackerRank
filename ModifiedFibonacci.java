@@ -15,40 +15,44 @@ import java.math.*;
 	Briana Wright
 
 */
+public class Solution 
+{
+	public static void main(String[] args) 
+	{
+    		//get input values
+   		Scanner S = new Scanner(System.in);
+    		int termOne = S.nextInt();
+    		int termTwo = S.nextInt();
+    		int nthTerm = S.nextInt();
 
+		//convert input values to big integer
+   		BigInteger term1 = BigInteger.valueOf(termOne);
+  		BigInteger term2 = BigInteger.valueOf(termTwo);
+		
+		//base case
+    		if(nthTerm == 1)
+       			System.out.println(term1);
+   		if(nthTerm == 2)
+       			System.out.println(term2);
+    		else 
+		{
+        		BigInteger answer = modifiedFib(nthTerm, term1, term2);
+        		System.out.println(answer);
+    		}
+	}
 
-public class Solution {
-public static void main(String[] args) {
-    
-    Scanner S = new Scanner(System.in);
-    int one = S.nextInt();
-    int two = S.nextInt();
-    int NthTerm = S.nextInt();
-
-    BigInteger term1 = BigInteger.valueOf(one);
-    BigInteger term2 = BigInteger.valueOf(two);
-
-    if(NthTerm == 1)
-       System.out.println(term1);
-    if(NthTerm == 2)
-       System.out.println(term2);
-    else{
-        BigInteger answer = modifiedFib(NthTerm, term1, term2);
-        System.out.println(answer);
-    }
-}
-
-public static BigInteger modifiedFib(int NthTerm, BigInteger term1, BigInteger term2){
-    int i = 2;
-    BigInteger fib = BigInteger.valueOf(0);
-    BigInteger power;
-    while(i < NthTerm){
-        power = term2.multiply(term2);
-        fib = term1.add(power);
-        term1 = term2;
-        term2 = fib;
-        i++;
-    }
-    return fib;
-}
+	public static BigInteger modifiedFib(int nthTerm, BigInteger term1, BigInteger term2){
+   		int i = 2;
+    		BigInteger fib = BigInteger.valueOf(0);
+    		BigInteger power;
+    		while(i < nthTerm)
+		{
+        		power = term2.multiply(term2);
+        		fib = term1.add(power);
+        		term1 = term2;
+        		term2 = fib;
+        		i++;
+    		}
+    		return fib;
+	}
 }
